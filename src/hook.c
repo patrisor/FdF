@@ -6,7 +6,7 @@
 /*   By: patrisor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/20 21:47:03 by patrisor          #+#    #+#             */
-/*   Updated: 2019/05/20 22:44:09 by patrisor         ###   ########.fr       */
+/*   Updated: 2019/05/21 00:53:28 by patrisor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		hook_keydown(int key, t_mlx *mlx)
 	// Casts mlx as void
 	(void)mlx;
 	// Key code for ESC
-	if (key == 53)
+	if (key == KEY_ESCAPE)
 		exit(EXIT_SUCCESS);
 	// TODO: Add more key codes
 	return (0);

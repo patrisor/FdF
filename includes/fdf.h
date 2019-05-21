@@ -6,7 +6,7 @@
 /*   By: patrisor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 02:53:33 by patrisor          #+#    #+#             */
-/*   Updated: 2019/05/20 22:14:52 by patrisor         ###   ########.fr       */
+/*   Updated: 2019/05/21 00:52:27 by patrisor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # define WIN_HEIGHT 720
 # define ERROR "error: "
 # define USAGE "usage: ./fdf [map]"
+# include "keycode_mac.h"
+# include "colors.h"
 # include "libft.h"
 # include "mlx.h"
 # include <math.h>
