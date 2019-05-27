@@ -6,11 +6,13 @@
 /*   By: patrisor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/20 23:17:24 by patrisor          #+#    #+#             */
-/*   Updated: 2019/05/20 23:17:42 by patrisor         ###   ########.fr       */
+/*   Updated: 2019/05/27 01:47:46 by patrisor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef KEYCODE_MAC_H
 # define KEYCODE_MAC_H
+
+// TODO: Add a scroll feature
 
 # define KEY_ESCAPE			53
 # define KEY_F1 			122

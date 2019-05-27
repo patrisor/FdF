@@ -6,7 +6,7 @@
 /*   By: patrisor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 02:53:33 by patrisor          #+#    #+#             */
-/*   Updated: 2019/05/21 00:52:27 by patrisor         ###   ########.fr       */
+/*   Updated: 2019/05/27 02:14:26 by patrisor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FDF_H
 # define WIN_WIDTH 1280
 # define WIN_HEIGHT 720
+# define MENU_WIDTH 250
 # define ERROR "error: "
 # define USAGE "usage: ./fdf [map]"
 # include "keycode_mac.h"
@@ -24,6 +25,8 @@
 # include <limits.h>
 # include <fcntl.h>
 # include <stdlib.h>
+// TODO: Store in libft
+# define FT_MIN(A, B) (((A) < (B)) ? (A) : (B))
 
 // TODO: DELETE
 #include <stdio.h>

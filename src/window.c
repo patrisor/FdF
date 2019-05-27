@@ -6,7 +6,7 @@
 /*   By: patrisor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/16 14:32:21 by patrisor          #+#    #+#             */
-/*   Updated: 2019/05/17 05:59:52 by patrisor         ###   ########.fr       */
+/*   Updated: 2019/05/27 02:31:55 by patrisor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,11 @@ t_mlx	*init(char *title)
 	mlx->cam->x = 0.5;
 	// Sets parameter for camera angle for y-position (initial rotation)
 	mlx->cam->y = 0.5;
-	// Adjust INITIAL scale of image
-	mlx->cam->scale = 32;
+	// Adjust INITIAL scale of image;
+	// // TODO: implement this to adjust the zoom distance for our map, accounting for
+	// menu:
+	// FT_MIN((WIN_WIDTH - MENU_WIDTH) / mlx->map->width / 2, WIN_HEIGHT / mlx->map->height / 2);
+	mlx->cam->scale = 42;
 	// Offset Initial x state at window 
 	mlx->cam->offsetx = WIN_WIDTH / 2;
 	// Offsets initial y state at window
