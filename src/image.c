@@ -6,7 +6,7 @@
 /*   By: patrisor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/16 22:14:27 by patrisor          #+#    #+#             */
-/*   Updated: 2019/05/20 20:23:00 by patrisor         ###   ########.fr       */
+/*   Updated: 2019/05/28 20:02:35 by patrisor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ t_image		*new_image(t_mlx *mlx)
 	// it later
 	img->ptr = mlx_get_data_addr(img->image, &img->bpp, &img->stride, 
 			&img->endian);
-	// img->bpp = img->bpp / 8;
+	// Bits per pixel: img->bpp = img->bpp / 8;
 	img->bpp /= 8;
 	return (img);
 }

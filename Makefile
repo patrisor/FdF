@@ -6,7 +6,7 @@
 #    By: patrisor <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/09 02:47:17 by patrisor          #+#    #+#              #
-#    Updated: 2019/05/21 00:15:47 by patrisor         ###   ########.fr        #
+#    Updated: 2019/05/28 19:17:57 by patrisor         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ SRC		= main.c \
 		  image.c \
 		  matrix.c \
 		  lineclip.c \
-		  hook.c
+		  hook.c \
+		  menu.c
 
 # Adds the prefix './obj/' to ever c file compiled as an object
 OBJ		= $(addprefix $(OBJDIR), $(SRC:.c=.o))

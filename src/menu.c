@@ -3,36 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   menu.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbrazhni <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: patrisor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/09 14:10:07 by vbrazhni          #+#    #+#             */
-/*   Updated: 2019/05/28 19:16:34 by patrisor         ###   ########.fr       */
+/*   Created: 2019/05/28 19:15:03 by patrisor          #+#    #+#             */
+/*   Updated: 2019/05/28 19:19:46 by patrisor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-** "fdf.h" for t_fdf type
-** "mlx.h" for mlx_string_put()
-** "color.h" for TEXT_COLOR
-*/
-
 #include "fdf.h"
-#include "mlx.h"
-#include "color.h"
 
 /*
-** Print "How to Use" instruction.
-*/
-
-void	print_menu(t_fdf *fdf)
+ * Print how-to use instructions
+ */
+void	print_menu(t_mlx *lib)
 {
 	int		y;
 	void	*mlx;
 	void	*win;
 
 	y = 0;
-	mlx = fdf->mlx;
-	win = fdf->win;
+	mlx = lib->mlx;
+	win = lib->window;
 	mlx_string_put(mlx, win, 65, y += 20, TEXT_COLOR, "How to Use");
 	mlx_string_put(mlx, win, 15, y += 35, TEXT_COLOR, "Zoom: Scroll or +/-");
 	mlx_string_put(mlx, win, 15, y += 30, TEXT_COLOR, "Move: Arrows");

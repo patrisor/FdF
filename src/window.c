@@ -6,7 +6,7 @@
 /*   By: patrisor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/16 14:32:21 by patrisor          #+#    #+#             */
-/*   Updated: 2019/05/27 02:31:55 by patrisor         ###   ########.fr       */
+/*   Updated: 2019/05/28 19:36:52 by patrisor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ t_mlx	*mlxdel(t_mlx *mlx)
  * Initializes and adjusts initial state of object before render; calls different 
  * functions from MLX to make previous statement true.
  */
-t_mlx	*init(char *title)
+t_mlx	*init(char *title, t_map *map)
 {
 	t_mlx	*mlx;
 
@@ -59,16 +59,16 @@ t_mlx	*init(char *title)
 		// Pass MLX into it's delete function which deletes everything created
 		// in memory
 		return (mlxdel(mlx));
+	// Passes the map into map
+	mlx->map = map;
 	// Fill the attributes of the camera in memory
 	// Sets parameter for camera angle for x-position (initial rotation)
 	mlx->cam->x = 0.5;
 	// Sets parameter for camera angle for y-position (initial rotation)
 	mlx->cam->y = 0.5;
-	// Adjust INITIAL scale of image;
-	// // TODO: implement this to adjust the zoom distance for our map, accounting for
-	// menu:
-	// FT_MIN((WIN_WIDTH - MENU_WIDTH) / mlx->map->width / 2, WIN_HEIGHT / mlx->map->height / 2);
-	mlx->cam->scale = 42;
+	// Dynamically adjusts INITIAL scale of image, based on initial size of map
+	mlx->cam->scale = FT_MIN((WIN_WIDTH - MENU_WIDTH) / mlx->map->width / 2, 
+			WIN_HEIGHT / mlx->map->height / 2);
 	// Offset Initial x state at window 
 	mlx->cam->offsetx = WIN_WIDTH / 2;
 	// Offsets initial y state at window

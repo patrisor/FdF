@@ -6,14 +6,14 @@
 /*   By: patrisor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 02:53:33 by patrisor          #+#    #+#             */
-/*   Updated: 2019/05/27 02:14:26 by patrisor         ###   ########.fr       */
+/*   Updated: 2019/05/28 20:06:20 by patrisor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
-# define WIN_WIDTH 1280
-# define WIN_HEIGHT 720
+# define WIN_WIDTH 1920
+# define WIN_HEIGHT 1080
 # define MENU_WIDTH 250
 # define ERROR "error: "
 # define USAGE "usage: ./fdf [map]"
@@ -106,7 +106,7 @@ void				fill_colors(t_map *map);
 int					clerp(int c1, int c2, double p);
 double				ft_ilerp(double val, double first, double second);
 int					ft_lerpi(int first, int second, double p);
-t_mlx				*init(char *title);
+t_mlx				*init(char *title, t_map *map);
 t_image				*del_image(t_mlx *mlx, t_image *img);
 t_image				*new_image(t_mlx *mlx);
 void				render(t_mlx *mlx);
@@ -124,5 +124,7 @@ int					hook_keydown(int key, t_mlx *mlx);
 int					hook_mousedown(int button, int x, int y, t_mlx *mlx);
 int					hook_mouseup(int button, int x, int y, t_mlx *mlx);
 int					hook_mousemove(int x, int y, t_mlx *mlx);
+// NEW
+void				print_menu(t_mlx *lib);
 
 #endif

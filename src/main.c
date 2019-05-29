@@ -6,7 +6,7 @@
 /*   By: patrisor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 02:54:48 by patrisor          #+#    #+#             */
-/*   Updated: 2019/05/20 22:43:36 by patrisor         ###   ########.fr       */
+/*   Updated: 2019/05/28 18:21:18 by patrisor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		die(char *reason)
 }
 
 // TODO: Delete Test function
-void	test_values(t_map *map)
+/*void	test_values(t_map *map)
 {
 	int			x;
 	int			y;
@@ -39,7 +39,7 @@ void	test_values(t_map *map)
 		}
 		y++;
 	}
-}
+}*/
 
 int		main(int argc, char **argv)
 {
@@ -65,10 +65,8 @@ int		main(int argc, char **argv)
 	// init function takes a parameter of what will show up on top of the window
 	// initializes our mlx environment by filling structs in memory associated with it
 	// with different values. We call functions from the library to make it all work
-	if ((mlx = init(ft_strjoin("FdF - ", argv[1]))) == NULL)
+	if ((mlx = init(ft_strjoin("FdF - ", argv[1]), map)) == NULL)
 		return (die(ft_strjoin(ERROR, "mlx couldn't init")));
-	// Passes the map into map
-	mlx->map = map;
 	// Function will continuously update our image
 	render(mlx);
 	// Key-pressed user event

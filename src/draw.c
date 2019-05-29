@@ -6,7 +6,7 @@
 /*   By: patrisor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/14 01:20:06 by patrisor          #+#    #+#             */
-/*   Updated: 2019/05/20 20:41:53 by patrisor         ###   ########.fr       */
+/*   Updated: 2019/05/28 20:02:40 by patrisor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,4 +159,6 @@ void	render(t_mlx *mlx)
 	// for the connection to the display, the window to use, and the image 
 	// (respectively mlx_ptr, win_ptr, and img_ptr)
 	mlx_put_image_to_window(mlx->mlx, mlx->window, mlx->image->image, 0, 0);
+	// Print menu on top left area of screen
+	print_menu(mlx);
 }

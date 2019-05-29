@@ -6,7 +6,7 @@
 /*   By: patrisor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/10 17:01:09 by patrisor          #+#    #+#             */
-/*   Updated: 2019/05/20 22:51:44 by patrisor         ###   ########.fr       */
+/*   Updated: 2019/05/28 18:59:21 by patrisor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,10 @@ t_vector	project_vector(t_vector v, t_mlx *mlx)
 	v.x *= mlx->cam->scale;
 	// Independently scales y coord
 	v.y *= mlx->cam->scale;
-	// Independently offsets x coord
+	// TODO: 
+	// Independently offsets x coord; OLD: mlx->cam->offsetx;
 	v.x += mlx->cam->offsetx;
-	// Independently offsets y coord
+	// Independently offsets y coord; OLD: mlx->cam->offsety;
 	v.y += mlx->cam->offsety;
 	return (v);
 }
