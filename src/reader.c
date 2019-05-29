@@ -6,7 +6,7 @@
 /*   By: patrisor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 07:38:27 by patrisor          #+#    #+#             */
-/*   Updated: 2019/05/28 18:06:09 by patrisor         ###   ########.fr       */
+/*   Updated: 2019/05/29 00:02:07 by patrisor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -204,9 +204,12 @@ static int	populate_map(t_map **map, t_list *list)
 	}
 	// Iterates the entirety of the map to find and assign the minimum and maximum values
 	find_depth(*map);
+	// Initial State of color
 	// Assigns cur to every spot in the map of vectors so that it can call it's own 
-	// address to color 
-	fill_colors(*map);
+	// address to color
+	(*map)->color1 = 0xFF0000;
+	(*map)->color2 = 0xFFFFFF;
+	fill_colors(*map, (*map)->color1, (*map)->color2);
 	// Deletes the contents of list and frees it's associated addressed
 	garbage_collect(&list, NULL);
 	return (1);

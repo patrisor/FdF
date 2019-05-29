@@ -6,7 +6,7 @@
 /*   By: patrisor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/10 17:01:09 by patrisor          #+#    #+#             */
-/*   Updated: 2019/05/28 18:59:21 by patrisor         ###   ########.fr       */
+/*   Updated: 2019/05/29 00:00:32 by patrisor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
  * Fills every single vector with a color
  * Added a gradient effect
  */
-void	fill_colors(t_map *map)
+void	fill_colors(t_map *map, int color1, int color2)
 {
 	t_vector	v;
 	t_vector	*cur;
@@ -34,7 +34,7 @@ void	fill_colors(t_map *map)
 			cur = map->vectors[(int)v.y * map->width + (int)v.x];
 			// Gives the Gradient effect from white (0xFFFFFF) to red (0xFF0000) ->
 			// for every vector, the color will shift based on the vector state.
-			cur->color = clerp(0xFF0000, 0xFFFFFF, ft_ilerp(cur->z, 
+			cur->color = clerp(color1, color2, ft_ilerp(cur->z, 
 						map->depth_min, map->depth_max));
 			v.x++;
 		}
@@ -106,7 +106,19 @@ t_map	*get_map(int width, int height)
 {
 	// instantiate a new map object in memory
 	t_map	*map;
+	size_t	arr_size;
+	// TODO: FIX THIS FOR NORMINETTE / Colors
+	int 	colors[64] = {BLACK, WHITE, RED, ORANGE, LIME, BLUE, YELLOW, CYAN, MAGENTA,
+		SILVER, GRAY, MAROON, OLIVE, GREEN, PURPLE, TEAL, NAVY, CRIMSON, CORAL,
+		INDIAN_RED, SALMON, ORANGE_RED, GOLD, GOLDEN_ROD, SADDLEBROWN, LAWN_GREEN,
+		DARK_GREEN, FOREST_GREEN, PALE_GREEN, SPRING_GREEN, SEA_GREEN, LIGHT_SEA_GREEN,
+		DARK_SLATE_GRAY, POWDER_BLUE, AQUA_MARINE, STEEL_BLUE, SKY_BLUE, MIDNIGHT_BLUE,
+		INDIGO, DARK_MAGENTA, DEEP_PINK, HOT_PINK, ORCHID, BEIGE, ANTIQUE_WHITE, WHEAT,
+		CORN_SILK, LAVENDER, FLORAL_WHITE, ALICE_BLUE, GHOST_WHITE, HONEYDEW, IVORY,
+		AZURE, SNOW, MISTY_ROSE, DARK_GRAY, GAINSBORO, WHITE_SMOKE, DISCO, BRICK_RED,
+		FLAMINGO, JAFFA, SAFFRON};
 
+	arr_size = width * height * sizeof(int);
 	// allocate memory to fit this map inside heap
 	map = ft_memalloc(sizeof(t_map));
 	// Error check
@@ -123,12 +135,15 @@ t_map	*get_map(int width, int height)
 	map->depth_max = 0;
 	// Vectors of map
 	map->vectors = ft_memalloc(sizeof(t_vector *) * width * height);
+	// Iterator
+	map->iter = 0;
 	// Error check vectors
-	if (map->vectors == NULL)
+	if (map->vectors == NULL || !(map->colors = (int *)ft_memalloc(arr_size)))
 	{
 		// Delete the address of map
 		ft_memdel((void **)&map);
 		return (NULL);
 	}
+	map->colors = colors;
 	return (map);
 }

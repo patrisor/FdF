@@ -6,7 +6,7 @@
 /*   By: patrisor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 02:53:33 by patrisor          #+#    #+#             */
-/*   Updated: 2019/05/28 20:06:20 by patrisor         ###   ########.fr       */
+/*   Updated: 2019/05/29 00:00:00 by patrisor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,11 @@ typedef struct		s_map
 	int				depth_min;
 	int				depth_max;
 	t_vector		**vectors;
+	// New
+	int				*colors;
+	int				color1;
+	int				color2;
+	int				iter;
 }					t_map;
 
 typedef struct		s_image
@@ -102,7 +107,7 @@ typedef struct		s_line
 int					read_file(int fd, t_map **map);
 t_map				*get_map(int width, int height);
 t_vector			*get_vector(int x, int y, char *str);
-void				fill_colors(t_map *map);
+void				fill_colors(t_map *map, int color1, int color2);
 int					clerp(int c1, int c2, double p);
 double				ft_ilerp(double val, double first, double second);
 int					ft_lerpi(int first, int second, double p);
@@ -126,5 +131,8 @@ int					hook_mouseup(int button, int x, int y, t_mlx *mlx);
 int					hook_mousemove(int x, int y, t_mlx *mlx);
 // NEW
 void				print_menu(t_mlx *lib);
+void				setup_controls(t_mlx *mlx);
+void				move(int key, t_mlx *mlx);
+void				change_color(int key, t_mlx *mlx);
 
 #endif

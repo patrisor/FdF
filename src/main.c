@@ -6,7 +6,7 @@
 /*   By: patrisor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 02:54:48 by patrisor          #+#    #+#             */
-/*   Updated: 2019/05/28 18:21:18 by patrisor         ###   ########.fr       */
+/*   Updated: 2019/05/29 00:40:54 by patrisor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int		main(int argc, char **argv)
 	t_mlx	*mlx;
 	int		fd;
 
-	if (argc != 2)
+	if (argc < 2)
 		return die(USAGE);
 	// Open a file called argv[1] and pass the file descriptor to a variable 
 	// called 'fd' with a RD_ONLY flag.
@@ -69,14 +69,8 @@ int		main(int argc, char **argv)
 		return (die(ft_strjoin(ERROR, "mlx couldn't init")));
 	// Function will continuously update our image
 	render(mlx);
-	// Key-pressed user event
-	mlx_key_hook(mlx->window, hook_keydown, mlx);
-	// Mouse-pressed user event
-	mlx_hook(mlx->window, 4, 0, hook_mousedown, mlx);
-	// Mouse-up user event
-	mlx_hook(mlx->window, 5, 0, hook_mouseup, mlx);
-	// Mouse movement user event
-	mlx_hook(mlx->window, 6, 0, hook_mousemove, mlx);
+	// Handles hook events
+	setup_controls(mlx);
 	// It is an infinite loop that waits for an event, and then calls a 
 	// user-defined function associated with this event.
 	mlx_loop(mlx->mlx);
