@@ -6,7 +6,7 @@
 /*   By: patrisor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 02:53:33 by patrisor          #+#    #+#             */
-/*   Updated: 2019/05/29 00:00:00 by patrisor         ###   ########.fr       */
+/*   Updated: 2019/05/29 16:47:17 by patrisor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,3 +136,14 @@ void				move(int key, t_mlx *mlx);
 void				change_color(int key, t_mlx *mlx);
 
 #endif
+
+/*
+**	SPECIAL THANKS
+**
+**	Many thanks to pbondoer from 42Paris for helping me understand the use of
+**	mlx library functions and integrated structures for this project, and vbrazhnik
+**  from 42Kyiv for helping me understand how to put text on the GUI.
+**	https://github.com/pbondoer/42-FdF
+**  https://github.com/VBrazhnik/FdF.git
+**	Full credit goes to them!
+*/

@@ -6,7 +6,7 @@
 /*   By: patrisor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/28 21:16:46 by patrisor          #+#    #+#             */
-/*   Updated: 2019/05/29 00:08:58 by patrisor         ###   ########.fr       */
+/*   Updated: 2019/05/29 16:48:47 by patrisor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,40 +33,37 @@ void	move(int key, t_mlx *mlx)
  */
 void	change_color(int key, t_mlx *mlx)
 {
-	int		i;
 	int		color1;
 	int		color2;
 
 	color1 = mlx->map->color1;
 	color2 = mlx->map->color2;
-	i = mlx->map->iter;
 	// Change Secondary Color
 	if (key == KEY_LEFT)
 	{
-		if (i == 0)
-			i = 63;
-		color2 = mlx->map->colors[--i];
+		if (mlx->map->iter == 0)
+			mlx->map->iter = 63;
+		color2 = mlx->map->colors[mlx->map->iter--];
 	}
 	else if (key == KEY_RIGHT)
 	{
-		if (i == 63)
-			i = 0;
-		color2 = mlx->map->colors[++i];
+		if (mlx->map->iter == 63)
+			mlx->map->iter = 0;
+		color2 = mlx->map->colors[mlx->map->iter++];
 	}
 	// Change Primary Color
 	else if (key == KEY_UP)
 	{
-		if (i == 63)
-			i = 0;
-		color1 = mlx->map->colors[++i];
+		if (mlx->map->iter == 63)
+			mlx->map->iter = 0;
+		color1 = mlx->map->colors[mlx->map->iter++];
 	}
 	else if (key == KEY_DOWN)
 	{
-		if (i == 0)
-			i = 63;
-		color1 = mlx->map->colors[--i];
+		if (mlx->map->iter == 0)
+			mlx->map->iter = 63;
+		color1 = mlx->map->colors[mlx->map->iter--];
 	}
-	mlx->map->iter = i;
 	mlx->map->color2 = color2;
 	mlx->map->color1 = color1;
 	fill_colors(mlx->map, color1, color2);
